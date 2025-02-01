@@ -8,6 +8,7 @@ radius = 5.0
 height = 58.0
 
 [node name="Laser" type="Area2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_brkl0")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
