@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnprug6651mn6"]
+[gd_scene load_steps=11 format=3 uid="uid://dnprug6651mn6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_dvg0y"]
 [ext_resource type="Script" path="res://main.gd" id="1_npfy0"]
 [ext_resource type="Texture2D" uid="uid://n15amcx1b25c" path="res://playerShip1_red.png" id="2_cl1ht"]
 [ext_resource type="Texture2D" uid="uid://bjnub7cc4bpak" path="res://purple.png" id="2_h4hj0"]
+[ext_resource type="PackedScene" uid="uid://bt4tutj1h5e3g" path="res://laser.tscn" id="3_ubuoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkp3e"]
 radius = 48.28
@@ -24,9 +25,10 @@ font_size = 64
 script = ExtResource("1_npfy0")
 
 [node name="Player" type="Area2D" parent="."]
-z_index = 5
-position = Vector2(272, 880)
+z_index = 10
+position = Vector2(272, 896)
 script = ExtResource("1_dvg0y")
+laser_tcsn = ExtResource("3_ubuoq")
 
 [node name="PlayerBody" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_cl1ht")
@@ -47,6 +49,7 @@ offset_right = 32.0
 offset_bottom = 40.0
 
 [node name="LabelScore" type="Label" parent="Control"]
+z_index = 10
 layout_mode = 0
 offset_left = 16.0
 offset_top = 8.0
@@ -56,6 +59,7 @@ text = "SCORE : 0"
 label_settings = SubResource("LabelSettings_73bny")
 
 [node name="LabekGameOver" type="Label" parent="Control"]
+z_index = 10
 layout_mode = 0
 offset_left = 104.0
 offset_top = 414.965
