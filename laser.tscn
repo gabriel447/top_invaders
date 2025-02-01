@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt4tutj1h5e3g"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_brkl0"]
-[ext_resource type="Texture2D" uid="uid://c77fkavxgv44f" path="res://laserRed13.png" id="1_p6jb3"]
+[ext_resource type="Texture2D" uid="uid://c77fkavxgv44f" path="res://etc/laserRed13.png" id="2_4ynxq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_leqpg"]
 radius = 5.0
@@ -13,7 +13,7 @@ script = ExtResource("1_brkl0")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 z_index = 4
-texture = ExtResource("1_p6jb3")
+texture = ExtResource("2_4ynxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 4
