@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnprug6651mn6"]
+[gd_scene load_steps=15 format=3 uid="uid://dnprug6651mn6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_dvg0y"]
 [ext_resource type="Script" path="res://main.gd" id="1_npfy0"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://n15amcx1b25c" path="res://playerShip1_red.png" id="2_cl1ht"]
 [ext_resource type="Texture2D" uid="uid://bjnub7cc4bpak" path="res://purple.png" id="2_h4hj0"]
 [ext_resource type="PackedScene" uid="uid://bt4tutj1h5e3g" path="res://laser.tscn" id="3_ubuoq"]
+[ext_resource type="Script" path="res://LabelScore.gd" id="6_h62td"]
 [ext_resource type="Script" path="res://EnemySpawner.gd" id="7_j6igd"]
+[ext_resource type="Script" path="res://LabekGameOver.gd" id="7_yxle1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkp3e"]
 radius = 48.28
@@ -59,8 +61,10 @@ offset_right = 174.0
 offset_bottom = 50.0
 text = "SCORE : 0"
 label_settings = SubResource("LabelSettings_73bny")
+script = ExtResource("6_h62td")
 
 [node name="LabekGameOver" type="Label" parent="Control"]
+visible = false
 z_index = 10
 layout_mode = 0
 offset_left = 104.0
@@ -71,6 +75,7 @@ text = "Game Over"
 label_settings = SubResource("LabelSettings_uyapm")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("7_yxle1")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("7_j6igd")
