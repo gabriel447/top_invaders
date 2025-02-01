@@ -1,3 +1,69 @@
-[gd_scene format=3 uid="uid://dnprug6651mn6"]
+[gd_scene load_steps=10 format=3 uid="uid://dnprug6651mn6"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_dvg0y"]
+[ext_resource type="Script" path="res://main.gd" id="1_npfy0"]
+[ext_resource type="Texture2D" uid="uid://n15amcx1b25c" path="res://playerShip1_red.png" id="2_cl1ht"]
+[ext_resource type="Texture2D" uid="uid://bjnub7cc4bpak" path="res://purple.png" id="2_h4hj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkp3e"]
+radius = 48.28
+
+[sub_resource type="SystemFont" id="SystemFont_ox8f2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_73bny"]
+font = SubResource("SystemFont_ox8f2")
+font_size = 28
+
+[sub_resource type="SystemFont" id="SystemFont_q4hf1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uyapm"]
+font = SubResource("SystemFont_q4hf1")
+font_size = 64
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_npfy0")
+
+[node name="Player" type="Area2D" parent="."]
+z_index = 5
+position = Vector2(272, 880)
+script = ExtResource("1_dvg0y")
+
+[node name="PlayerBody" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_cl1ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_lkp3e")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(270, 480)
+scale = Vector2(2.10938, 3.75)
+texture = ExtResource("2_h4hj0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_right = 32.0
+offset_bottom = 40.0
+
+[node name="LabelScore" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 174.0
+offset_bottom = 50.0
+text = "SCORE : 0"
+label_settings = SubResource("LabelSettings_73bny")
+
+[node name="LabekGameOver" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 414.965
+offset_right = 451.0
+offset_bottom = 505.965
+text = "Game Over"
+label_settings = SubResource("LabelSettings_uyapm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
